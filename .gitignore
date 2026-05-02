@@ -7,6 +7,7 @@ build/
 .venv/
 venv/
 .pytest_cache/
+agent-review/
 
 # Data files — QS Excel must be downloaded from topuniversities.com;
 # compiled DB is built locally and never committed.

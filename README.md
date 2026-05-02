@@ -140,6 +140,9 @@ pytest tests/
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+The code and included seed data are MIT licensed — see [LICENSE](LICENSE).
 
-QS ranking data is not distributed with this software. See [NOTICE](NOTICE).
+QS ranking data is **not** distributed with this software and is **not** covered
+by the MIT License. Any `university.db` built from QS source files contains
+QS-derived data subject to QS's own terms. See [NOTICE](NOTICE) and
+[DATA_SOURCES.md](DATA_SOURCES.md).

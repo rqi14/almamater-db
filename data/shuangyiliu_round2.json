@@ -1,7 +1,7 @@
 {
   "round": 2,
   "announced_year": 2022,
-  "source_url": "",
+  "source_url": "https://www.moe.gov.cn/srcsite/A22/s7065/202202/t20220211_598710.html",
   "normalized_at": "2026-05-01",
   "schools": [
     {"name": "北京大学", "subjects": []},

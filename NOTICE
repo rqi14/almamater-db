@@ -3,19 +3,28 @@ Third-Party Data Notices
 
 QS World University Rankings
 -----------------------------
-This software can be used with QS World University Rankings data, available at
-https://www.topuniversities.com. QS ranking data is NOT distributed with this
-software. Users must download the Excel files directly from topuniversities.com
-and agree to QS's Terms and Conditions of Use before running `amdb build`.
+QS ranking data is NOT distributed with this software and is NOT covered by
+this repository's MIT License.
 
-When using QS data with this software, include the following attribution:
+To use QS ranking features, users must independently download the Excel files
+from https://www.topuniversities.com and agree to QS's Terms and Conditions of
+Use (https://www.topuniversities.com/terms-conditions) before running
+`amdb build`.
+
+Any SQLite database (`university.db`) built locally using QS source files
+contains QS-derived data. That derived data is subject to QS's terms and
+is NOT granted under the MIT License. Users are solely responsible for
+complying with QS licensing terms before sharing, publishing, or redistributing
+any derived outputs.
+
+Required attribution when reproducing QS data:
 
   Source: QS Quacquarelli Symonds (www.qs.com). With permission.
   Copyright © QS Quacquarelli Symonds Ltd.
 
 Double First-Class (双一流) Data
 ---------------------------------
-The Double First-Class (Shuang Yiliu / 双一流) round data included in
-data/shuangyiliu_round1.json and data/shuangyiliu_round2.json is derived from
+data/shuangyiliu_round1.json and data/shuangyiliu_round2.json are derived from
 official announcements by the Ministry of Education of the People's Republic of
-China. This is public government data.
+China. Government administrative data is not subject to copyright under
+PRC Copyright Law Article 5. See DATA_SOURCES.md for source URLs and notes.

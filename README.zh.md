@@ -139,6 +139,6 @@ pytest tests/
 
 ## 许可证
 
-MIT — 见 [LICENSE](LICENSE)。
+代码和内置种子数据采用 MIT 许可证 — 见 [LICENSE](LICENSE)。
 
-QS 排名数据不随本软件分发。见 [NOTICE](NOTICE)。
+QS 排名数据**不**随本软件分发，也**不**受 MIT 许可证覆盖。使用 QS 源文件构建的 `university.db` 包含受 QS 条款约束的衍生数据，用户须自行遵守 QS 使用条款。见 [NOTICE](NOTICE) 和 [DATA_SOURCES.md](DATA_SOURCES.md)。
