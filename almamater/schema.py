@@ -55,6 +55,11 @@ CREATE TABLE IF NOT EXISTS university_subject_rankings (
   PRIMARY KEY (university_id, subject)
 );
 
+CREATE TABLE IF NOT EXISTS build_info (
+  key   TEXT PRIMARY KEY,
+  value TEXT NOT NULL
+);
+
 CREATE INDEX IF NOT EXISTS idx_universities_name_en ON universities(name_en);
 CREATE INDEX IF NOT EXISTS idx_universities_country  ON universities(country);
 CREATE INDEX IF NOT EXISTS idx_universities_qs_rank  ON universities(qs_rank);

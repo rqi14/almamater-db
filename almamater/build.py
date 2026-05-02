@@ -1,7 +1,9 @@
 """End-to-end build orchestration: data sources -> data/university.db."""
 from __future__ import annotations
+import json
 import os
 import sqlite3
+from datetime import date
 from pathlib import Path
 
 from . import name_map
@@ -102,6 +104,21 @@ def build(data_dir: str | Path, db_path: str | Path, quiet: bool = False) -> dic
                WHERE country = 'XX' AND qs_rank IS NULL
                  AND id NOT IN (SELECT university_id FROM university_syl)
                  AND id NOT IN (SELECT university_id FROM university_subject_rankings)"""
+        )
+
+        # Write build metadata so consumers can inspect what went into the DB.
+        meta = {
+            "built_at": date.today().isoformat(),
+            "china_edu_count": stats.get("china_edu", 0),
+            "qs_world_count": stats.get("qs_world", 0),
+            "qs_world_file": QS_WORLD_NAME if (data_dir / QS_WORLD_NAME).exists() else "",
+            "qs_subject_file": QS_SUBJECT_NAME if (data_dir / QS_SUBJECT_NAME).exists() else "",
+            "qs_subject_counts": json.dumps(stats.get("qs_subject", {})),
+            "intl_aliases_count": stats.get("intl_aliases", 0),
+        }
+        conn.executemany(
+            "INSERT OR REPLACE INTO build_info (key, value) VALUES (?, ?)",
+            meta.items(),
         )
         conn.commit()
     except Exception:
