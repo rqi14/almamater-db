@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.pytest_cache/
+
+# Data files — QS Excel must be downloaded from topuniversities.com;
+# compiled DB is built locally and never committed.
+data/*.xlsx
+data/*.xls
+data/*.db
+data/*.tmp
+data/unmatched.log
