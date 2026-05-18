@@ -16,3 +16,6 @@ data/*.xls
 data/*.db
 data/*.tmp
 data/unmatched.log
+
+# Git worktrees
+.worktrees/
