@@ -57,14 +57,20 @@ ZH_TO_QS_EN: dict[str, str] = {v: k for k, v in QS_EN_TO_ZH.items()}
 # Common Chinese short-forms (alias -> canonical name).
 # Auto-generation (e.g. name[:2]+"大") is unreliable: 中国人民大学→人大 not 中大,
 # 清华大学→清华 not 清大. Maintained manually for the most-searched names only.
+#
+# Removed ambiguous aliases (substring-match risk on other school names):
+#   "北大"  — substring of 东北大学, 西北大学, 河北大学, 湖北大学
+#   "南大"  — suffix of 东南大学, 中南大学, 湖南大学, 云南大学, 西南大学, 河南大学
+#   "天大"  — substring of 北京航空航天大学 and 南京航空航天大学 (航天大学 ⊃ 天大)
+#   "科大"  — substring of 温州医科大学, 广州医科大学, 首都医科大学 etc. (医科大学 ⊃ 科大)
+#             triggered the specific bug: OCR of "温州医科大学" matched "科大" → USTC false-positive
+#             Use the safe 3-char form "中科大" instead.
 SHORT_ALIASES: dict[str, str] = {
-    "北大":   "北京大学",
     "清华":   "清华大学",
     "人大":   "中国人民大学",
     "浙大":   "浙江大学",
     "复旦":   "复旦大学",
     "交大":   "上海交通大学",
-    "南大":   "南京大学",
     "同济":   "同济大学",
     "武大":   "武汉大学",
     "华科":   "华中科技大学",
@@ -75,12 +81,10 @@ SHORT_ALIASES: dict[str, str] = {
     "北航":   "北京航空航天大学",
     "北理":   "北京理工大学",
     "南开":   "南开大学",
-    "天大":   "天津大学",
     "东南":   "东南大学",
     "厦大":   "厦门大学",
     "中科大": "中国科学技术大学",
     "国科大": "中国科学院大学",
-    "科大":   "中国科学技术大学",
     "东北大": "东北大学",
 }
 
